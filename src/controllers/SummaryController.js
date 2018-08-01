@@ -9,14 +9,21 @@ var _ = require('lodash');
 function countPresidentProvince(input) {
   var arr = input,
     obj = {};
+    // console.log(arr)
   for (var i = 0; i < arr.length; i++) {
-    if (!obj[arr[i].isVotedIdCandidate.no_urut]) {
-      obj[arr[i].isVotedIdCandidate.no_urut] = 1;
-    } else if (obj[arr[i].isVotedIdCandidate.no_urut]) {
-      // console.log(dataCalculated)
-      obj[arr[i].isVotedIdCandidate.no_urut] += 1;
-      // console.log(obj)
+
+    if (arr[i].isVotedIdCandidate !== null) {
+      if (!obj[arr[i].isVotedIdCandidate.no_urut]) {
+        obj[arr[i].isVotedIdCandidate.no_urut] = 1;
+      } else if (obj[arr[i].isVotedIdCandidate.no_urut]) {
+        // console.log(dataCalculated)
+        obj[arr[i].isVotedIdCandidate.no_urut] += 1;
+        // console.log(obj)
+      }
     }
+    // if (obj[arr[i].isVotedIdCandidate.no_urut]){
+    //   obj[arr[i].isVotedIdCandidate.no_urut] += 0;
+    // }
   }
   return obj;
 }
@@ -123,7 +130,7 @@ module.exports = {
        let countProvince = countPresidentProvince(assembleProvinceDynamic[val.province])
         
        let convertToArray = Object.entries(countProvince).map(([candidate, count]) => ({candidate,count}));
-      //  console.log(countProvince)
+       console.log(countProvince)
        
        let tempCount = 0;
        let total = 0;
