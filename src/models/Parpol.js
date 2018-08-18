@@ -7,7 +7,7 @@ const ParpolSchema = new Schema({
 
     },
     nama_parpol: {
-        unique: true,
+        unique: true, 
         type: String,
         required: true
     },

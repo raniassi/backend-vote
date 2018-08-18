@@ -210,7 +210,7 @@ module.exports = {
         if (a !== randomA) {
           if (a === 0) {
             var dateKKa = randomDateKK;
-            randomA = faker.random.number({ min: 1, max: 4 });
+            randomA = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -259,7 +259,7 @@ module.exports = {
         if (a1 !== randomA1) {
           if (a1 === 0) {
             var dateKKa = randomDateKK11;
-            randomA1 = faker.random.number({ min: 1, max: 4 });
+            randomA1 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -308,7 +308,7 @@ module.exports = {
         if (a2 !== randomA2) {
           if (a2 === 0) {
             var dateKKa = randomDateKK12;
-            randomA2 = faker.random.number({ min: 1, max: 4 });
+            randomA2 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -357,7 +357,7 @@ module.exports = {
         if (a3 !== randomA3) {
           if (a3 === 0) {
             var dateKKa = randomDateKK13;
-            randomA3 = faker.random.number({ min: 1, max: 4 });
+            randomA3 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -406,7 +406,7 @@ module.exports = {
         if (a4 !== randomA4) {
           if (a4 === 0) {
             var dateKKa = randomDateKK14;
-            randomA4 = faker.random.number({ min: 1, max: 4 });
+            randomA4 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -455,7 +455,7 @@ module.exports = {
         if (a5 !== randomA5) {
           if (a5 === 0) {
             var dateKKa = randomDateKK15;
-            randomA5 = faker.random.number({ min: 1, max: 4 });
+            randomA5 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -504,7 +504,7 @@ module.exports = {
         if (a6 !== randomA6) {
           if (a6 === 0) {
             var dateKKa = randomDateKK16;
-            randomA6 = faker.random.number({ min: 1, max: 4 });
+            randomA6 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -553,7 +553,7 @@ module.exports = {
         if (a7 !== randomA7) {
           if (a7 === 0) {
             var dateKKa = randomDateKK17;
-            randomA7 = faker.random.number({ min: 1, max: 4 });
+            randomA7 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -602,7 +602,7 @@ module.exports = {
         if (a8 !== randomA8) {
           if (a8 === 0) {
             var dateKKa = randomDateKK18;
-            randomA8 = faker.random.number({ min: 1, max: 4 });
+            randomA8 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -651,7 +651,7 @@ module.exports = {
         if (a9 !== randomA9) {
           if (a9 === 0) {
             var dateKKa = randomDateKK19;
-            randomA9 = faker.random.number({ min: 1, max: 4 });
+            randomA9 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -700,7 +700,7 @@ module.exports = {
         if (a10 !== randomA10) {
           if (a10 === 0) {
             var dateKKa = randomDateKK20;
-            randomA10 = faker.random.number({ min: 1, max: 4 });
+            randomA10 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -749,7 +749,7 @@ module.exports = {
         if (a11 !== randomA11) {
           if (a11 === 0) {
             var dateKKa = randomDateKK21;
-            randomA11 = faker.random.number({ min: 1, max: 4 });
+            randomA11 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -798,7 +798,7 @@ module.exports = {
         if (a12 !== randomA12) {
           if (a12 === 0) {
             var dateKKa = randomDateKK22;
-            randomA12 = faker.random.number({ min: 1, max: 4 });
+            randomA12 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -847,7 +847,7 @@ module.exports = {
         if (a13 !== randomA13) {
           if (a13 === 0) {
             var dateKKa = randomDateKK23;
-            randomA13 = faker.random.number({ min: 1, max: 4 });
+            randomA13 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -896,7 +896,7 @@ module.exports = {
         if (a14 !== randomA14) {
           if (a14 === 0) {
             var dateKKa = randomDateKK24;
-            randomA14 = faker.random.number({ min: 1, max: 4 });
+            randomA14 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -945,7 +945,7 @@ module.exports = {
         if (a15 !== randomA15) {
           if (a15 === 0) {
             var dateKKa = randomDateKK25;
-            randomA15 = faker.random.number({ min: 1, max: 4 });
+            randomA15 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -994,7 +994,7 @@ module.exports = {
         if (a16 !== randomA16) {
           if (a16 === 0) {
             var dateKKa = randomDateKK26;
-            randomA16 = faker.random.number({ min: 1, max: 4 });
+            randomA16 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1043,7 +1043,7 @@ module.exports = {
         if (a17 !== randomA17) {
           if (a17 === 0) {
             var dateKKa = randomDateKK27;
-            randomA17 = faker.random.number({ min: 1, max: 4 });
+            randomA17 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1092,7 +1092,7 @@ module.exports = {
         if (a18 !== randomA18) {
           if (a18 === 0) {
             var dateKKa = randomDateKK28;
-            randomA18 = faker.random.number({ min: 1, max: 4 });
+            randomA18 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1141,7 +1141,7 @@ module.exports = {
         if (a19 !== randomA19) {
           if (a19 === 0) {
             var dateKKa = randomDateKK29;
-            randomA19 = faker.random.number({ min: 1, max: 4 });
+            randomA19 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1190,7 +1190,7 @@ module.exports = {
         if (a20 !== randomA20) {
           if (a20 === 0) {
             var dateKKa = randomDateKK30;
-            randomA20 = faker.random.number({ min: 1, max: 4 });
+            randomA20 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1239,7 +1239,7 @@ module.exports = {
         if (a21 !== randomA21) {
           if (a21 === 0) {
             var dateKKa = randomDateKK31;
-            randomA21 = faker.random.number({ min: 1, max: 4 });
+            randomA21 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1288,7 +1288,7 @@ module.exports = {
         if (a22 !== randomA22) {
           if (a22 === 0) {
             var dateKKa = randomDateKK32;
-            randomA22 = faker.random.number({ min: 1, max: 4 });
+            randomA22 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1337,7 +1337,7 @@ module.exports = {
         if (a23 !== randomA23) {
           if (a23 === 0) {
             var dateKKa = randomDateKK33;
-            randomA23 = faker.random.number({ min: 1, max: 4 });
+            randomA23 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1386,7 +1386,7 @@ module.exports = {
         if (a24 !== randomA24) {
           if (a24 === 0) {
             var dateKKa = randomDateKK34;
-            randomA24 = faker.random.number({ min: 1, max: 4 });
+            randomA24 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1435,7 +1435,7 @@ module.exports = {
         if (a25 !== randomA25) {
           if (a25 === 0) {
             var dateKKa = randomDateKK35;
-            randomA25 = faker.random.number({ min: 1, max: 4 });
+            randomA25 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1484,7 +1484,7 @@ module.exports = {
         if (a26 !== randomA26) {
           if (a26 === 0) {
             var dateKKa = randomDateKK36;
-            randomA26 = faker.random.number({ min: 1, max: 4 });
+            randomA26 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1533,7 +1533,7 @@ module.exports = {
         if (a27 !== randomA27) {
           if (a27 === 0) {
             var dateKKa = randomDateKK37;
-            randomA27 = faker.random.number({ min: 1, max: 4 });
+            randomA27 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1582,7 +1582,7 @@ module.exports = {
         if (a28 !== randomA28) {
           if (a28 === 0) {
             var dateKKa = randomDateKK38;
-            randomA28 = faker.random.number({ min: 1, max: 4 });
+            randomA28 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1631,7 +1631,7 @@ module.exports = {
         if (a29 !== randomA29) {
           if (a29 === 0) {
             var dateKKa = randomDateKK39;
-            randomA29 = faker.random.number({ min: 1, max: 4 });
+            randomA29 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1680,7 +1680,7 @@ module.exports = {
         if (a30 !== randomA30) {
           if (a30 === 0) {
             var dateKKa = randomDateKK40;
-            randomA30 = faker.random.number({ min: 1, max: 4 });
+            randomA30 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1729,7 +1729,7 @@ module.exports = {
         if (a31 !== randomA31) {
           if (a31 === 0) {
             var dateKKa = randomDateKK41;
-            randomA31 = faker.random.number({ min: 1, max: 4 });
+            randomA31 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1778,7 +1778,7 @@ module.exports = {
         if (a32 !== randomA32) {
           if (a32 === 0) {
             var dateKKa = randomDateKK42;
-            randomA32 = faker.random.number({ min: 1, max: 4 });
+            randomA32 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1827,7 +1827,7 @@ module.exports = {
         if (a33 !== randomA33) {
           if (a33 === 0) {
             var dateKKa = randomDateKK43;
-            randomA33 = faker.random.number({ min: 1, max: 4 });
+            randomA33 = faker.random.number({ min: 2, max: 4 });
             var randomRtA1 = faker.random.number({ min: 1, max: 20 });
             var randomRwA1 = faker.random.number({ min: 1, max: 20 });
           }
@@ -1870,6 +1870,7 @@ module.exports = {
           countA33++;
         }
         a33++;
+        console.log(a33);
       }
 
       console.log(" provinsi ", provinsi);

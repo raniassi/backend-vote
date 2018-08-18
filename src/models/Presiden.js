@@ -28,11 +28,12 @@ const PresidenSchema = new Schema({
     },
     vote: {
         type: Number,
-        required: true
+        required: true,
+        default:0
     },
     img: {
         type: String,
-        required: true
+        required: false
     },
 });
 
