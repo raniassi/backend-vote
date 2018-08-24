@@ -32,16 +32,17 @@ const multer = require("multer")
     // create the multer instance that will be used to upload/save the file
 
 const upload = multer({ storage });
-module.exports = (app) => {
+module.exports = (app) => { 
 
     app.post('/api/signup', UserController.register);
     app.post('/api/login', UserController.login);
     app.post('/api/add-presiden', UserController.addPresiden);
     app.post('/api/add-parpol', UserController.addParpol);
     app.post('/api/voteAll-capres', UserController.voteAllCapres);
-    app.post('/api/add-randomktp', SeederController.addRandomKtp);
     app.post('/api/add-province', UserController.addProvince);
     app.post('/api/upload-photo', upload.single('photos'), UserController.uploadPhoto);
+    app.post('/api/get-ktp', UserController.getKtp);
+    app.post('/api/add-randomktp', SeederController.addRandomKtp);
     app.post('/api/add-vote-status',VoteStatusController.addStatus);
     app.post('/api/update-time-status',VoteStatusController.postStatusUpdate);
     app.post('/api/update-status',VoteStatusController.updateStatus);
@@ -49,10 +50,10 @@ module.exports = (app) => {
     app.get('/api/get-all-presiden', UserController.getPresiden);
     app.get('/api/get-all-parpol', UserController.getParpol);
     app.get('/api/get-user', UserController.getUser);
-    app.get('/api/get-summary-presiden', SummaryController.getSummaryPresiden);
     app.get('/api/get-all-users', UserController.getAllUsers);
     app.get('/api/get-all-ktp', UserController.getAllKtp);
     app.get('/api/get-users', UserController.getUsers);
     app.get('/api/get-status-vote',VoteStatusController.getStatus)
+    app.get('/api/get-summary-presiden', SummaryController.getSummaryPresiden);
 
 }

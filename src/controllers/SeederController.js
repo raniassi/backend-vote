@@ -9,8 +9,8 @@ module.exports = {
   async addRandomKtp(req, res, next) {
     var kkID = "";
     var provinsi = "";
-
     var RtRwResult = "";
+    var noHP = "62895333026480";
     var pad = "0000";
     var padRtRw = "000";
     var a = 0;
@@ -168,41 +168,11 @@ module.exports = {
         pad.substring(0, pad.toString().length - ktpNumber.toString().length) +
         ktpNumber.toString();
       var randomProvinsi = faker.random.arrayElement([
-        "11",
-        "12",
-        "13",
-        "14",
-        "15",
-        "16",
-        "17",
-        "18",
-        "19",
-        "21",
-        "31",
-        "32",
-        "33",
-        "34",
-        "35",
-        "36",
-        "51",
-        "52",
-        "53",
-        "61",
-        "62",
-        "63",
-        "64",
-        "65",
-        "71",
-        "72",
-        "73",
-        "74",
-        "75",
-        "76",
-        "81",
-        "82",
-        "91",
-        "92"
-      ]);
+        "11", "12", "13", "14", "15", "16", "17",
+        "18", "19", "21", "31", "32", "33", "34",
+        "35", "36", "51", "52", "53", "61", "62",
+        "63", "64", "65", "71", "72", "73", "74",
+        "75", "76", "81", "82", "91", "92"]);
       /*--------------------------ACEH-----------------------------*/
 
       if (randomProvinsi === "11") {
@@ -1871,7 +1841,7 @@ module.exports = {
         }
         a33++;
         console.log(a33);
-      }
+      } 
 
       console.log(" provinsi ", provinsi);
 
@@ -1885,6 +1855,7 @@ module.exports = {
           Year.toString().substring(2, 4) +
           ans,
         kkId: kkID,
+        noHP: noHP,
         provinsi: provinsi,
         ttl: faker.address.city() + " ,  " + Day + "-" + Month + "-" + Year,
         jk: jenisKelamin,
@@ -1895,13 +1866,8 @@ module.exports = {
         kecamatan: faker.address.state({}),
         kabkot: faker.address.city({}),
         agama: faker.random.arrayElement([
-          "Islam",
-          "Kristen Protestan",
-          "Katolik",
-          "Hindu",
-          "Buddha",
-          "Kong Hu Cu"
-        ]),
+          "Islam", "Kristen Protestan", "Katolik",
+          "Hindu", "Buddha", "Kong Hu Cu"]),
         status: faker.random.arrayElement(["KAWIN", "BELUM KAWIN"]),
         pekerjaan: faker.name.jobTitle(),
         kewarganegaraan: "WNI",

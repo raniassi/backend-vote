@@ -6,44 +6,45 @@ const Parpol = require("../models/Parpol");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
-var twilio = require('twilio');
-var accountSid = 'ACd22fbc09950c0a149e5a136d9cc35343'; // Your Account SID from www.twilio.com/console
-var authToken = 'dff4c7b73c3a81392f92ac3add772776';   // Your Auth Token from www.twilio.com/console
+var randomstring = require("randomstring");
+var Nexmo = require("nexmo");
 
-var Nexmo = require('nexmo');
-
-module.exports = { 
+module.exports = {
   async register(req, res, next) {
-
     console.log(req.body);
     const { name, noKtp, noKk, password, confirmpassword } = req.body;
 
     const nexmo = new Nexmo({
-      apiKey: 'e630389a',
-      apiSecret: 'SKfAMDiGewnO0pEa'
+      apiKey: "e630389a",
+      apiSecret: "SKfAMDiGewnO0pEa"
     });
-    
-    nexmo.message.sendSms(
-        '62895333026480', '62895333026480', 'yo',
-          (err, responseData) => {
-            if (err) {
-              console.log(err);
-            } else {
-              console.dir(responseData);
-            }
-          }
-       );
 
+    const resultRnd = randomstring.generate(6);
+    
+    console.log(resultRnd);
+
+    // nexmo.message.sendSms(
+    //   "62895333026480",
+    //   "62895333026480",
+    //   resultRnd,
+    //   (err, responseData) => {
+    //     if (err) {
+    //       console.log(err);
+    //     } else {
+    //       console.dir(responseData);
+    //     }
+    //   }
+    // );
 
     const CheckKtp = await Ktp.findOne({
       nik: noKtp,
       kkId: noKk
     });
-console.log(CheckKtp);
+    console.log(CheckKtp);
 
     const getIdProvince = await Province.findOne({
-      province:CheckKtp.provinsi
-    })
+      province: CheckKtp.provinsi
+    });
 
     if (CheckKtp) {
       const UserSchema = await new User({
@@ -51,8 +52,7 @@ console.log(CheckKtp);
         noKtp,
         noKk,
         name,
-        password,
-        confirmpassword,
+        password: resultRnd,
         idKtp: CheckKtp._id,
         provinceId: getIdProvince._id,
         log: "null",
@@ -69,15 +69,23 @@ console.log(CheckKtp);
   },
 
   async addPresiden(req, res, next) {
-    const { no_urut, nama_presiden, nama_wakil, id_parpol, vote, img } = req.body;
-    console.log(req.body)
-    const PresidenSchema = await new Presiden({
+    const {
       no_urut,
       nama_presiden,
       nama_wakil,
       id_parpol,
       vote,
       img
+    } = req.body;
+    console.log(req.body);
+    let addRootUrl =  '/assets-img/'+img;
+    const PresidenSchema = await new Presiden({
+      no_urut,
+      nama_presiden,
+      nama_wakil,
+      id_parpol,
+      vote,
+      img:addRootUrl
     }).save();
 
     if (PresidenSchema) {
@@ -171,7 +179,6 @@ console.log(CheckKtp);
     }
   },
 
-
   async getPresiden(req, res, next) {
     const result = await Presiden.find({});
     console.log(result);
@@ -185,11 +192,13 @@ console.log(CheckKtp);
   },
 
   async getAllUsers(req, res, next) {
-    const result = await User.find({}).populate({
-      path: 'isVotedIdCandidate'
-    }).populate({
-      path: 'provinceId'
-    })
+    const result = await User.find({})
+      .populate({
+        path: "isVotedIdCandidate"
+      })
+      .populate({
+        path: "provinceId"
+      });
     res.json(result);
   },
 
@@ -202,28 +211,34 @@ console.log(CheckKtp);
 
   async getUsers(req, res, next) {
     const result = await User.find({}).populate({
-        path: 'ktp'
+      path: "ktp"
     });
     res.json(result);
-},
+  },
 
   async getAllKtp(req, res, next) {
     const result = await Ktp.find({}).populate({
-        path: '_id'
+      path: "_id"
     });
     res.json(result);
-},
+  },
+
+  async getKtp(req, res, next) {
+    const result = await Ktp.findOne({ nik: req.body.ktp });
+    if (result) {
+      res.json(result);
+    } else {
+      res.sendStatus(404);
+    }
+  },
 
   async uploadPhoto(req, res, next) {
-    
-
     // console.log(req.file)
-    
+
     // console.log(req.query);
     // const result = await User.findById({ _id: req.query.userId });
     // console.log(result);
     // res.json(result);
     res.sendStatus(200);
-
   }
 };

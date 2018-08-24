@@ -6,7 +6,6 @@ const KtpSchema = new Schema({
     type: String,
     required: true
   },
-
   provinsi: {
     type: String,
     required: false
@@ -19,6 +18,10 @@ const KtpSchema = new Schema({
     type: String,
     required: false
   },
+  noHP: {
+    type: String,
+    required: false,
+},
   ttl: {
     type: String,
     required: true
@@ -76,3 +79,4 @@ const KtpSchema = new Schema({
 const Ktp = mongoose.model("ktp", KtpSchema);
 
 module.exports = Ktp;
+

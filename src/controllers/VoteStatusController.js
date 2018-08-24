@@ -17,7 +17,7 @@ module.exports = {
   },
 
   async getStatus(req, res, next) {
-    const lifeCircle = await VoteLifeCicle.find({});
+    
     const result = await VoteStatus.find({});
     let arr = [0, 2];
     if (result.length !== 0) {
