@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const Admin = require("../models/Admin");
 const Presiden = require("../models/Presiden");
 const Province = require("../models/Province");
 const Ktp = require("../models/Ktp");
@@ -20,21 +21,6 @@ module.exports = {
     });
 
     const resultRnd = randomstring.generate(6);
-    
-    console.log(resultRnd);
-
-    // nexmo.message.sendSms(
-    //   "62895333026480",
-    //   "62895333026480",
-    //   resultRnd,
-    //   (err, responseData) => {
-    //     if (err) {
-    //       console.log(err);
-    //     } else {
-    //       console.dir(responseData);
-    //     }
-    //   }
-    // );
 
     const CheckKtp = await Ktp.findOne({
       nik: noKtp,
@@ -58,6 +44,20 @@ module.exports = {
         log: "null",
         role: 1
       }).save();
+      console.log(resultRnd);
+
+      // nexmo.message.sendSms(
+      //   "62895333026480",
+      //   "62895333026480",
+      //   resultRnd,
+      //   (err, responseData) => {
+      //     if (err) {
+      //       console.log(err);
+      //     } else {
+      //       console.dir(responseData);
+      //     }
+      //   }
+      // );
 
       if (UserSchema) {
         res.sendStatus(200);
@@ -75,17 +75,19 @@ module.exports = {
       nama_wakil,
       id_parpol,
       vote,
+      final,
       img
     } = req.body;
     console.log(req.body);
-    let addRootUrl =  '/assets-img/'+img;
+    let addRootUrl = "/assets-img/" + img;
     const PresidenSchema = await new Presiden({
       no_urut,
       nama_presiden,
       nama_wakil,
       id_parpol,
       vote,
-      img:addRootUrl
+      final,
+      img: addRootUrl
     }).save();
 
     if (PresidenSchema) {
@@ -103,6 +105,38 @@ module.exports = {
     if (ParpolSchema) {
       res.sendStatus(200);
     }
+  },
+
+  async updatePresiden(req, res, next) {
+    const final = await Presiden.findByIdAndUpdate(
+      { _id: req.body.id_presiden },
+      { $set: { final: req.body.final } }
+    );
+
+    if (final) {
+      return res.sendStatus(200);
+    }
+    return res.sendStatus(500);
+  },
+
+  async deleteParpol(req, res, next) {
+    const deleteParpol = await Parpol.findByIdAndRemove({
+      _id: req.body.id
+    });
+    if (deleteParpol) {
+      return res.sendStatus("200");
+    }
+    return res.sendStatus("500");
+  },
+
+  async deletePresiden(req, res, next) {
+    const deletePresiden = await Presiden.findByIdAndRemove({
+      _id: req.body.id
+    });
+    if (deletePresiden) {
+      return res.sendStatus("200");
+    }
+    return res.sendStatus("500");
   },
 
   async addProvince(req, res, next) {
@@ -155,7 +189,8 @@ module.exports = {
       }
 
       const payload = {
-        id: theUser.id
+        id: theUser.id,
+        name: theUser.name
       };
 
       const token = jwt.sign(payload, keys.JWT_SECRET_KEY, {
@@ -167,6 +202,58 @@ module.exports = {
         data: {
           token,
           user: theUser
+        },
+        status: {
+          code: 200,
+          message: "Request Handle Corretly",
+          succeeded: true
+        }
+      });
+    } catch (err) {
+      next(err);
+    }
+  },
+
+  async addAdmin(req, res, next) {
+    const { username, password } = req.body;
+
+    const AdminSchema = await new Admin({
+      username,
+      password
+    }).save();
+
+    if (AdminSchema) {
+      res.sendStatus(200);
+    }
+  },
+
+  async loginAdmin(req, res, next) {
+    const { username, password } = req.body;
+    console.log(password);
+    try {
+      //TODO: Login
+      const theAdmin = await Admin.findOne({
+        username,
+        password
+      });
+
+      if (!theAdmin) {
+        return res.sendStatus(404);
+      }
+
+      const payload = {
+        id: theAdmin.id
+      };
+
+      const token = jwt.sign(payload, keys.JWT_SECRET_KEY, {
+        expiresIn: 7 * 24 * 60 * 60
+      });
+
+      //TODO: Sending Response
+      res.send({
+        data: {
+          token,
+          admin: theAdmin
         },
         status: {
           code: 200,

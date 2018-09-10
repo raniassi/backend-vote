@@ -1,11 +1,10 @@
 const VoteStatus = require("../models/VoteStatus");
 var moment = require("moment");
-
 module.exports = {
   async addStatus(req, res, next) {
     const { nama, status, timeStart, timeEnd } = req.body;
     const VoteStatusSchema = await new VoteStatus({
-      nama,
+      nama, 
       status,
       timeStart,
       timeEnd
@@ -17,52 +16,38 @@ module.exports = {
   },
 
   async getStatus(req, res, next) {
+  var dateNow = moment();
     
     const result = await VoteStatus.find({});
-    let arr = [0, 2];
+    const voting = result[0];
+    const sengketa = result[3];
+    const panikButton = result[1];
+    const sengketaButton = result[2];
     if (result.length !== 0) {
-      for (let index = 0; index < result.length; index++) {
-        if (
-          result[index].timeStart !== null &&
-          result[index].timeEnd !== null
-        ) {
-          if (
-            (result[3].status !== true && index === 1) ||
-            (result[5].status !== true && index === 2)
-          ) {
-            var dateNow = moment();
-            if (moment(dateNow).isBefore(result[index].timeStart) === false) {
-              if (moment(dateNow).isAfter(result[index].timeEnd) === true) {
-                await VoteStatus.findByIdAndUpdate(
-                  { _id: result[index]._id },
-                  { status: false }
-                );
-                if (index === 1) {
-                  for (let index = 0; index < arr.length; index++) {
-                    const element = arr[index];
-                    await VoteStatus.findByIdAndUpdate(
-                      { _id: result[element]._id },
-                      { status: true }
-                    );
-                  }
-                }
-              } else {
-                await VoteStatus.findByIdAndUpdate(
-                  { _id: result[index]._id },
-                  { status: true }
-                );
-                if (index === 1) {
-                  for (let index = 0; index < arr.length; index++) {
-                    const element = arr[index];
-                    await VoteStatus.findByIdAndUpdate(
-                      { _id: result[element]._id },
-                      { status: false }
-                    );
-                  }
-                }
-              }
+      if (
+        voting.timeStart !== null &&
+        voting.timeEnd !== null
+      ) {
+        if (moment(dateNow).isBefore(voting.timeStart) === false) {
+          //console.log("masuk waktu")
+          if(moment(dateNow).isAfter(voting.timeEnd) === true){
+            // kodisi matikan
+            //console.log("masuk marikan")
+           const result =  await VoteStatus.findByIdAndUpdate({_id:voting._id},{status:false, timeStart:null, timeEnd:null});
+            if (result) {
+              //console.log("berhsail dimatikan",dateNow)
+            }else{
+              //console.log("gagal updae")
+            }
+          }else{
+            //kondisi nyalakan
+            const result =  await VoteStatus.findByIdAndUpdate({_id:voting._id},{status:true});
+            if (result) {
+              console.log("berhsail nyalakan,",dateNow)
             }
           }
+        }else{
+          console.log("tidak masuk waktu", dateNow)
         }
       }
     }

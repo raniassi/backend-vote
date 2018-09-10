@@ -21,7 +21,7 @@ const KtpSchema = new Schema({
   noHP: {
     type: String,
     required: false,
-},
+  },
   ttl: {
     type: String,
     required: true

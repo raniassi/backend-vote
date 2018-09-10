@@ -33,6 +33,11 @@ const PresidenSchema = new Schema({
   img: {
     type: String,
     required: false
+  },
+  final:{
+    type: Number,
+    required: false,
+    default: 0
   }
 });
 

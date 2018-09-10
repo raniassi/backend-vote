@@ -27,40 +27,6 @@ function countPresidentProvince(input) {
   return obj;
 }
 
-function findNested(obj, key, value) {
-  // Base case
-  if (obj[key] === value) {
-    return obj;
-  } else {
-    for (var i = 0, len = Object.keys(obj).length; i < len; i++) {
-      if (typeof obj[i] == "object") {
-        var found = findNested(obj[i], key, value);
-        if (found) {
-          // If the object was found in the recursive call, bubble it up.
-          return found;
-        }
-      }
-    }
-  }
-}
-
-function assign(obj, keyPath, value) {
-  lastKeyIndex = keyPath.length - 1;
-  for (var i = 0; i < lastKeyIndex; ++i) {
-    key = keyPath[i];
-    if (!(key in obj)) obj[key] = {};
-    obj = obj[key];
-  }
-  obj[keyPath[lastKeyIndex]] = value;
-}
-
-let findDeep = function(data, province) {
-  return data.some(function(e) {
-    if (e.province == province) return true;
-    else if (e) return findDeep(e.items, province);
-  });
-};
-
 module.exports = {
   async getSummaryPresiden(req, res, next) {
     /**
@@ -79,7 +45,8 @@ module.exports = {
     }
 
     for (i = 0; i < getAllPresident.length; i++) {
-      const hasilHitung = (getAllPresident[i].vote / totalSuaraGlobal) * 100;
+      const hasilHitung =
+        ((getAllPresident[i].vote - 34) / totalSuaraGlobal) * 100;
       const resultGlobalCalculate = hasilHitung.toFixed(2);
       reWriteResultPresidentGlobal.push({
         nama_presiden: getAllPresident[i].nama_presiden,
@@ -152,7 +119,7 @@ module.exports = {
           // console.log( convertToArray[z].candidate)
           reWrite.push({
             candidate: convertToArray[q].candidate,
-            count: ((convertToArray[q].count - 1)  / tempCount) * 100
+            count: ((convertToArray[q].count - 1) / tempCount) * 100
           });
         }
 
