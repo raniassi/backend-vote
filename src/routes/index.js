@@ -53,6 +53,7 @@ module.exports = (app) => {
     app.post('/api/delete-presiden', UserController.deletePresiden)
  
     app.get('/api/get-all-presiden', UserController.getPresiden);
+    app.get('/api/get-presiden', UserController.getSinglePresiden);
     app.get('/api/get-all-parpol', UserController.getParpol);
     app.get('/api/get-user', UserController.getUser);
     app.get('/api/get-all-users', UserController.getAllUsers);
