@@ -8,7 +8,7 @@ var _ = require("lodash");
 
 function countPresidentProvince(input) {
   var arr = input,
-    obj = {};
+    obj = {}; 
   // console.log(arr)
   for (var i = 0; i < arr.length; i++) {
     if (arr[i].isVotedIdCandidate !== null) {
@@ -36,7 +36,9 @@ module.exports = {
     let getAllProvince = await Province.find({});
     let getAllPresident = await Presiden.find({});
     let reWriteResultPresidentGlobal = [];
+    let reWriteResultPresidentSengketa = [];
     let totalSuaraGlobal = 0;
+    let totalSuaraSengketa = 0;
     let assembleProvince = [];
     let reWriteResultProvince = [];
 
@@ -53,6 +55,22 @@ module.exports = {
         nama_wakil: getAllPresident[i].nama_wakil,
         img: getAllPresident[i].img,
         resultGlobalCalculate
+      });
+    }
+
+    for (z = 0; z < getAllPresident.length; z++) {
+      totalSuaraSengketa += getAllPresident[z].final;
+    }
+
+    for (i = 0; i < getAllPresident.length; i++) {
+      const hasilHitung =
+        (getAllPresident[i].final / totalSuaraSengketa) * 100;
+      const resultSengketaCalculate = hasilHitung.toFixed(2);
+      reWriteResultPresidentSengketa.push({
+        nama_presiden: getAllPresident[i].nama_presiden,
+        nama_wakil: getAllPresident[i].nama_wakil,
+        img: getAllPresident[i].img,
+        resultSengketaCalculate
       });
     }
 
@@ -135,7 +153,8 @@ module.exports = {
 
     let mergeAll = {
       provincesVoteResult: reWriteResultProvince,
-      globalVoteResult: reWriteResultPresidentGlobal
+      globalVoteResult: reWriteResultPresidentGlobal,
+      sengketaVoteResult: reWriteResultPresidentSengketa
     };
 
     res.json(mergeAll);

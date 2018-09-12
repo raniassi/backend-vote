@@ -108,15 +108,49 @@ module.exports = {
   },
 
   async updatePresiden(req, res, next) {
-    const final = await Presiden.findByIdAndUpdate(
-      { _id: req.body.id_presiden },
-      { $set: { final: req.body.final } }
-    );
-
-    if (final) {
-      return res.sendStatus(200);
+    console.log(req.body)
+    if (req.body.img !== null) {
+      const updatePres = await Presiden.findByIdAndUpdate(
+        { _id: req.body.id_presiden },
+        {
+          $set: {
+            final: req.body.final,
+            nama_presiden: req.body.nama_presiden,
+            nama_wakil: req.body.nama_wakil,
+            no_urut: req.body.no_urut, 
+            img: req.body.img
+          }
+        },
+        {new: true},
+        function (err, updatePres){
+          if (err) return console.error(err);
+          res.send(updatePres);
+        }
+      );
     }
-    return res.sendStatus(500);
+    else {
+      const updatePres = await Presiden.findByIdAndUpdate(
+        { _id: req.body.id_presiden },
+        {
+          $set: {
+            final: req.body.final,
+            nama_presiden: req.body.nama_presiden,
+            nama_wakil: req.body.nama_wakil,
+            no_urut: req.body.no_urut
+          }
+        },
+        {new: true},
+        function (err, updatePres){
+          if (err) return handleError(err);
+          res.send(updatePres);
+        }
+      );
+  }
+
+    // if (updatePres) {
+    //   return res.sendStatus(200);
+    // }
+    // return res.sendStatus(500);
   },
 
   async deleteParpol(req, res, next) {
@@ -149,6 +183,13 @@ module.exports = {
     if (ProvinceSchema) {
       res.sendStatus(200);
     }
+  },
+
+  async getSinglePresiden (req, res, next) {
+    console.log(req.query)
+    const result = await Presiden.findById(req.query.params);
+    console.log(result);
+    res.json(result);
   },
 
   async voteAllCapres(req, res, next) {

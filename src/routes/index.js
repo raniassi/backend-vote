@@ -58,7 +58,8 @@ module.exports = (app) => {
     app.get('/api/get-all-users', UserController.getAllUsers);
     app.get('/api/get-all-ktp', UserController.getAllKtp);
     app.get('/api/get-users', UserController.getUsers);
-    app.get('/api/get-status-vote',VoteStatusController.getStatus)
+    app.get('/api/get-presiden', UserController.getSinglePresiden);
+    app.get('/api/get-status-vote',VoteStatusController.getStatus);
     app.get('/api/get-summary-presiden', SummaryController.getSummaryPresiden);
 
     
