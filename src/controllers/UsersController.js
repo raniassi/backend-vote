@@ -107,6 +107,23 @@ module.exports = {
     }
   },
 
+  async updateParpol(req, res, next) {
+    console.log(req.body)
+      const updatePar = await Parpol.findByIdAndUpdate(
+        { _id: req.body.id_parpol },
+        {
+          $set: {
+            nama_parpol: req.body.nama_parpol
+          }
+        },
+        {new: true},
+        function (err, updatePar){
+          if (err) return console.error(err);
+          res.send(updatePar);
+        }
+      );
+    },
+
   async updatePresiden(req, res, next) {
     console.log(req.body)
     if (req.body.img !== null) {
@@ -188,6 +205,13 @@ module.exports = {
   async getSinglePresiden (req, res, next) {
     console.log(req.query)
     const result = await Presiden.findById(req.query.params);
+    console.log(result);
+    res.json(result);
+  },
+
+  async getSingleParpol (req, res, next) {
+    console.log(req.query)
+    const result = await Parpol.findById(req.query.params);
     console.log(result);
     res.json(result);
   },

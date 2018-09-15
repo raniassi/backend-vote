@@ -49,6 +49,7 @@ module.exports = (app) => {
     app.post('/api/update-time-status',VoteStatusController.postStatusUpdate);
     app.post('/api/update-status',VoteStatusController.updateStatus);
     app.post('/api/update-presiden',UserController.updatePresiden);
+    app.post('/api/update-parpol',UserController.updateParpol);
     app.post('/api/delete-parpol', UserController.deleteParpol)
     app.post('/api/delete-presiden', UserController.deletePresiden)
  
@@ -59,6 +60,7 @@ module.exports = (app) => {
     app.get('/api/get-all-ktp', UserController.getAllKtp);
     app.get('/api/get-users', UserController.getUsers);
     app.get('/api/get-presiden', UserController.getSinglePresiden);
+    app.get('/api/get-parpol', UserController.getSingleParpol);
     app.get('/api/get-status-vote',VoteStatusController.getStatus);
     app.get('/api/get-summary-presiden', SummaryController.getSummaryPresiden);
 

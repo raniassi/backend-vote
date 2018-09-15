@@ -127,7 +127,7 @@ module.exports = {
             // console.log(convertToArray[t].candidate)
             if (convertToArray[t].candidate === getAllPresident[p].no_urut) {
               convertToArray[t].candidate =
-                getAllPresident[p].nama_presiden +
+                getAllPresident[p].nama_presiden + '-'+
                 getAllPresident[p].nama_wakil;
             }
           }
