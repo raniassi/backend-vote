@@ -25,7 +25,7 @@ const multer = require("multer")
           req.file.pathname in the router handler.
         */
       //  console.log(req.file)
-        const newFilename = file.originalname.toLocaleLowerCase();
+        const newFilename = file.originalname;
         cb(null, newFilename);
       },
     });

@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
 var randomstring = require("randomstring");
 var Nexmo = require("nexmo");
+var mongoose = require('mongoose');
 
 module.exports = {
   async register(req, res, next) {
@@ -108,6 +109,7 @@ module.exports = {
   },
 
   async updateParpol(req, res, next) {
+
     console.log(req.body)
       const updatePar = await Parpol.findByIdAndUpdate(
         { _id: req.body.id_parpol },
@@ -125,8 +127,7 @@ module.exports = {
     },
 
   async updatePresiden(req, res, next) {
-    console.log(req.body)
-    if (req.body.img !== null) {
+    if (req.body.img !== '') {
       const updatePres = await Presiden.findByIdAndUpdate(
         { _id: req.body.id_presiden },
         {
@@ -135,7 +136,8 @@ module.exports = {
             nama_presiden: req.body.nama_presiden,
             nama_wakil: req.body.nama_wakil,
             no_urut: req.body.no_urut, 
-            img: req.body.img
+            img: req.body.img,
+            id_parpol: req.body.id_parpol
           }
         },
         {new: true},
@@ -153,7 +155,8 @@ module.exports = {
             final: req.body.final,
             nama_presiden: req.body.nama_presiden,
             nama_wakil: req.body.nama_wakil,
-            no_urut: req.body.no_urut
+            no_urut: req.body.no_urut,
+            id_parpol: req.body.id_parpol
           }
         },
         {new: true},
