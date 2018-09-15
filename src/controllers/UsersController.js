@@ -336,6 +336,13 @@ module.exports = {
     console.log(result);
     res.json(result);
   },
+  async getSinglePresiden(req, res, next) {
+    console.log(req.query)
+    const result = await Presiden.findById(req.query.params);
+    console.log(result);
+    res.json(result);
+  },
+  
 
   async getParpol(req, res, next) {
     const result = await Parpol.find({});
